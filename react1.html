@@ -13,6 +13,11 @@
         background-color: #EEE;
     }
     #container h1 {
+      font-size: 42px;
+      font-family: Verdana, Tahoma, sans-serif;
+      color: #0080a8;
+    }
+    #container h2 {
       font-size: 80px;
       font-family: Verdana, Tahoma, sans-serif;
       color: #0080a8;
@@ -22,16 +27,25 @@
 
 <body>
   <div id="container"></div>
-
   <script type="text/babel">
     var destination = document.querySelector("#container")
 
-    ReactDOM.render(React.createElement(
-      "h1",
-      null,
-      "Playgound Pool"
+    class Areas extends React.Component{
+      render() {
+        return <h1>{this.props.selectArea}</h1>
+      }
+    }
 
-    ), destination);
+    ReactDOM.render(
+      <div>
+        <h2> Playground Areas </h2>
+        <Areas selectArea="Sandbox"/>
+        <Areas selectArea="Pool"/>
+        <Areas selectArea="Ladder"/>
+        <Areas selectArea="Swing"/>
+      </div>,
+      document.querySelector("#container")
+    )
 
   </script>
 </body>
